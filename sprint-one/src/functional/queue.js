@@ -4,18 +4,27 @@ var makeQueue = function(){
   // Use an object with numeric keys to store values
   var storage = {};
   var size = 0;
+  var topIndex = -1;
   // Implement the methods below
 
   instance.enqueue = function(value){
-    storage[size++] = value;
+    console.log('enqueue: '+ value);
+    size++;
+    storage[topIndex++] = value;
   };
 
   instance.dequeue = function(){
-    var item = storage[0];
+    var index = (topIndex - 1) - (Object.keys(storage).length - 1);
+    console.log(index);
+    var item = storage[index];
+
+    console.log('botton of queue: ' + item);
+
     if (item !== undefined) {
-      delete storage[0];
+      delete storage[index];
       size--;
     }
+
     return item;
   };
 
