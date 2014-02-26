@@ -1,14 +1,4 @@
-var makeStack = function(){
-  // var instance = extendStack({});
-  var instance = {};
-
-  _.extend(instance, stackMethods);
-
-  instance.storage = {};
-  instance.stackSize = 0;
-
-  return instance;
-};
+/* export extendStack makeStack */
 
 // Mixins with methods
 var extendStack = function(obj) {
@@ -45,4 +35,16 @@ var stackMethods = {
   size : function(){
     return this.stackSize;
   }
+};
+
+var makeStack = function(){
+  // var instance = extendStack({});
+  var instance = {};
+
+  _.extend(instance, stackMethods);
+
+  instance.storage = {};
+  instance.stackSize = 0;
+
+  return instance;
 };

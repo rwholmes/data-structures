@@ -1,5 +1,42 @@
-var makeQueue = function(){
-  // Hey! Copy your code from src/functional/queue.js and paste it here
+/* global _ */
+/* export makeQueue */
+
+// Mixins with _.extend()
+var queueMethods = {
+  enqueue : function(value){
+    this.queueSize++;
+    this.storage[this.topIndex++] = value;
+  },
+
+  dequeue : function(){
+    var index = (this.topIndex - 1) - (Object.keys(this.storage).length - 1);
+    console.log(index);
+    var item = this.storage[index];
+
+    console.log('botton of queue: ' + item);
+
+    if (item !== undefined) {
+      delete this.storage[index];
+      this.queueSize--;
+    }
+
+    return item;
+  },
+
+  size : function(){
+    return this.queueSize;
+  }
 };
 
-var queueMethods = {};
+
+var makeQueue = function(){
+  var instance = {};
+
+  instance.storage = {};
+  instance.queueSize = 0;
+  instance.topIndex = -1;
+
+  _.extend(instance, queueMethods);
+
+  return instance;
+};
