@@ -10,10 +10,8 @@ var queueMethods = {
 
   dequeue : function(){
     var index = (this.topIndex - 1) - (Object.keys(this.storage).length - 1);
-    console.log(index);
     var item = this.storage[index];
 
-    console.log('botton of queue: ' + item);
 
     if (item !== undefined) {
       delete this.storage[index];
