@@ -32,7 +32,7 @@ describe("linkedList", function() {
     expect(linkedList.head.value).to.equal(4);
     console.log(linkedList)
     linkedList.removeHead();
-        console.log(linkedList) 
+        console.log(linkedList)
     expect(linkedList.head.value).to.equal(5);
   });
 
@@ -49,6 +49,38 @@ describe("linkedList", function() {
     linkedList.addToTail(5);
     linkedList.removeHead();
     assert.isFalse(linkedList.contains(4));
+  });
+  it("should have previous value", function(){
+    linkedList.addToTail(4);
+    expect(linkedList.tail).to.have.property('next')
+  });
+  it("tail should update its next value after head is removed", function(){
+    linkedList.addToTail(4);
+    linkedList.addToTail(5);
+    linkedList.addToTail(6);
+    linkedList.removeHead();
+    expect(linkedList.tail.next.value).to.equal(5);
+  });
+  it("new head should update its previous value after head is removed", function(){
+    linkedList.addToTail(4);
+    linkedList.addToTail(5);
+    linkedList.addToTail(6);
+    linkedList.removeHead();
+    expect(linkedList.head.previous.value).to.equal(6);
+  });
+  it("It should add a value to the head successfully", function(){
+    linkedList.addToTail(4);
+    linkedList.addToTail(5);
+    linkedList.addToTail(6);
+    linkedList.addToHead(1);
+    expect(linkedList.head.value).to.equal(1);
+  });
+  it("should remove the tail from the list when removeHead is called", function(){
+    linkedList.addToTail(4);
+    linkedList.addToTail(5);
+    expect(linkedList.tail.value).to.equal(5);
+    linkedList.removeTail();
+    expect(linkedList.tail.value).to.equal(4);
   });
 
   // add more tests here to test the functionality of linkedList
