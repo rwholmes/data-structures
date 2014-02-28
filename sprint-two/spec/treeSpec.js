@@ -43,5 +43,13 @@ describe("tree", function() {
     assert.isTrue(tree.contains(7));
     assert.isTrue(tree.contains(8));
   });
+  it("It should have a parent", function() {
+    tree.addChild(5);
+    tree.children[0].addChild(7);
+    console.log(tree);
+    expect(tree.children[0].children[0].parent.value
+      ).to.equal(5);
+  });
+
 
 });
