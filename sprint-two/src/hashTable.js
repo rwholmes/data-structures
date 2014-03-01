@@ -45,6 +45,8 @@ HashTable.prototype.adjustLimit = function(){
 
   if (size >= (3/4 * this._limit)) {
     this._limit *= 2;
+    // need to makelimitedArray with new limit
+    // then need to move the values over to the new limited array
   } else if (size <= (1/4 * this._limit)) {
     this._limit *= 1/2;
   }
