@@ -45,7 +45,13 @@ binaryTreeMethods.contains = function(value) {
 }
 
 binaryTreeMethods.depthFirstLog = function(callback) {
-
+  callback(this.value);
+  if (this.left !== null) {
+    this.left.depthFirstLog(callback);
+  }
+  if (this.right !== null) {
+    this.right.depthFirstLog(callback);
+  }
 }
 
 

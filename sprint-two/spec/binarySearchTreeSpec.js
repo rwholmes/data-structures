@@ -1,4 +1,4 @@
-var assert = chai.assert; 
+var assert = chai.assert;
 
 describe("binarySearchTree", function() {
   var binarySearchTree;
@@ -29,13 +29,13 @@ describe("binarySearchTree", function() {
     assert.isTrue(binarySearchTree.contains(7));
     assert.isFalse(binarySearchTree.contains(8));
   });
-  
+
   it("should execute a callback on every value in a tree using 'depthFirstLog'", function(){
     var array = [];
     var func = function(value){ array.push(value); }
     binarySearchTree.insert(2);
     binarySearchTree.insert(3);
     binarySearchTree.depthFirstLog(func);
-    assert.notStrictEqual(array, [5,2,3]);
+    assert.isTrue(array.join() === [5,2,3].join());
   });
 });
