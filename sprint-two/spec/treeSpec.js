@@ -46,9 +46,15 @@ describe("tree", function() {
   it("It should have a parent", function() {
     tree.addChild(5);
     tree.children[0].addChild(7);
-    console.log(tree);
     expect(tree.children[0].children[0].parent.value
       ).to.equal(5);
+  });
+
+  it("It should disassociate trees from parents", function() {
+    tree.addChild(5);
+    tree.children[0].addChild(7);
+    tree.children[0].children[0].removeFromParent();
+    expect(tree.children[0].children).to.equal(undefined);
   });
 
 

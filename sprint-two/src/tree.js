@@ -39,5 +39,16 @@ treeMethods.contains = function(target){
 };
 
 treeMethods.removeFromParent = function(){
+  if (this.parent.children.length <= 1) {
+    delete this.parent.children;
+  } else {
+    for(var i=0; i<this.parent.children.length; i++) {
+      if (this.parent.children[i] === this) {
+        console.log('found what were looking for');
+        this.parent.children.splice(i,1);
+      }
+    }
+  }
+  this.parent = null;
 
 };
