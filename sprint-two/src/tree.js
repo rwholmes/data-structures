@@ -44,7 +44,6 @@ treeMethods.removeFromParent = function(){
   } else {
     for(var i=0; i<this.parent.children.length; i++) {
       if (this.parent.children[i] === this) {
-        console.log('found what were looking for');
         this.parent.children.splice(i,1);
       }
     }
