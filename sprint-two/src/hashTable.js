@@ -38,6 +38,7 @@ HashTable.prototype.retrieve = function(k){
     }
   }
 
+  return null;
 };
 
 HashTable.prototype.remove = function(k){
@@ -47,9 +48,7 @@ HashTable.prototype.remove = function(k){
   for (var j=0; j<bucket.length; j++){
     var pair = bucket[j];
     if (pair[0] === k) {
-      console.log('Bucket before slice: ' + bucket);
       bucket.splice(j, 1);
-      console.log('Bucket after slice: ' + bucket);
       this._count--;
       if (this._count < 0.25 * this._limit && this._limit > 8){
         this.adjustLimit(this._limit/2);
